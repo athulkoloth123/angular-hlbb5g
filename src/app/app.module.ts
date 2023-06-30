@@ -4,6 +4,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
+import { ReactiveFormsModule } from '@angular/forms';
+import { Exercise1Module } from './exercises/exercise1/exercise1.module';
 
 @NgModule({
   declarations: [
@@ -12,10 +14,12 @@ import {RouterModule} from "@angular/router";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([{
-      path: 'exercises',
-      loadChildren: () =>   import('./exercises/exercises.module').then((m) => m.ExercisesModule),
-    }]),
+    ReactiveFormsModule,
+    Exercise1Module,
+    // RouterModule.forRoot([{
+    //   path: 'exercises',
+    //   loadChildren: () =>   import('./exercises/exercises.module').then((m) => m.ExercisesModule),
+    // }]),
   ],
   providers: [],
   bootstrap: [AppComponent]
