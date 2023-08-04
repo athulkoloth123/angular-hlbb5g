@@ -1,20 +1,22 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-inverted-child',
   templateUrl: './inverted-child.component.html',
-  styleUrls: ['./inverted-child.component.css']
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InvertedChildComponent implements OnInit {
+export class InvertedChildComponent {
+  inputValue: string = '';
+  @Output() event = new EventEmitter<string>();
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onClick() {
+    this.event.emit(this.inputValue);
   }
-
-  @Output() childEvent = new EventEmitter();
-  buttonClick(value: string) {
-     this.childEvent.emit(value);
-  }
-
 }

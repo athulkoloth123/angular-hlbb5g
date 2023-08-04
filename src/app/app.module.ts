@@ -14,14 +14,10 @@ import { Exercise1Module } from './exercises/exercise1/exercise1.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     Exercise1Module,
-    // RouterModule.forRoot([{
-    //   path: 'exercises',
-    //   loadChildren: () =>   import('./exercises/exercises.module').then((m) => m.ExercisesModule),
-    // }]),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

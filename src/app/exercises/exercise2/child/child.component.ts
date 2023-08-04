@@ -1,21 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css']
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class ChildComponent {
+  constructor(private cdr: ChangeDetectorRef) {}
+  @Input() set value(value: string) {
+    this._value = value;
+    this.cdr.markForCheck();
   }
-
-  // names = [];
-   names : string[] = [];
-   addName(value: string) {
-      this.names.push(value);
-   }
-
+  get value(): string {
+    return this._value;
+  }
+  private _value: string = '';
 }

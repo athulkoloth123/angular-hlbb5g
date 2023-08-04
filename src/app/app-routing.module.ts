@@ -30,13 +30,17 @@ const routes: Routes = [
         (module) => module.Exercise4Module
       ),
   },
-  {
-    path: 'exercise/99',
-    loadChildren: () =>
-      import('./exercises/exerciseNotFound/exerciseNotFound.module').then(
-        (module) => module.ExerciseNotFoundModule
-      ),
-  },
+  
+    
+    {
+
+      path: '**',
+      loadChildren: () =>
+        import('./exercises/exerciseNotFound/exerciseNotFound.module').then(
+          (module) => module.ExerciseNotFoundModule
+        ),
+  
+    },
 ];
 
 @NgModule({
